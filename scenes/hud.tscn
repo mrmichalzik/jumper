@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://o8qpoldqs0nt"]
+
+[ext_resource type="FontFile" uid="uid://dcyhbns0b8mpb" path="res://fonts/Kenney Pixel Square.ttf" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://d3wkhgxk34n0t" path="res://scripts/hud.gd" id="1_oo0fn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_toqtt"]
+font = ExtResource("1_ahhtf")
+font_size = 48
+font_color = Color(0.6014114, 0.84991556, 0.9700412, 1)
+
+[node name="HUD" type="CanvasLayer" unique_id=461849100]
+script = ExtResource("1_oo0fn")
+
+[node name="TimerHUD" type="Control" parent="." unique_id=1182819065]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="TimeLabel" type="Label" parent="TimerHUD" unique_id=1896497295]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -92.0
+offset_bottom = 67.0
+grow_horizontal = 0
+text = "TIME: 00"
+label_settings = SubResource("LabelSettings_toqtt")

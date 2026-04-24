@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ubpnylaah6fx"]
+
+[ext_resource type="PackedScene" uid="uid://dve8hfghfvdfr" path="res://scenes/player.tscn" id="1_2q6dc"]
+[ext_resource type="Script" uid="uid://bte2t6c302d1a" path="res://scenes/level.gd" id="1_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://biqqno5vn5exl" path="res://scenes/ground.tscn" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://cj1cui07k2oww" path="res://scenes/death_zone.tscn" id="3_w8frs"]
+[ext_resource type="PackedScene" uid="uid://ctr66pyuhyjl" path="res://scenes/jump_pad.tscn" id="5_ppgk2"]
+[ext_resource type="Script" uid="uid://brrmusltfabtd" path="res://scenes/jump_pad.gd" id="6_2r41h"]
+[ext_resource type="PackedScene" uid="uid://dpv50s1e35elj" path="res://scenes/circular_saw.tscn" id="7_klq6b"]
+
+[node name="Level" type="Node2D" unique_id=177607391]
+script = ExtResource("1_mx8sn")
+
+[node name="Player" parent="." unique_id=1049054567 instance=ExtResource("1_2q6dc")]
+visible = false
+position = Vector2(546, 351)
+
+[node name="Ground2" parent="." unique_id=1062028093 instance=ExtResource("2_w7c3h")]
+position = Vector2(1236, 526)
+
+[node name="Ground" parent="." unique_id=638977227 instance=ExtResource("2_w7c3h")]
+position = Vector2(546, 623)
+
+[node name="DeathZone" parent="." unique_id=961100304 instance=ExtResource("3_w8frs")]
+position = Vector2(-199, 684)
+
+[node name="JumpPad" parent="." unique_id=1529706232 instance=ExtResource("5_ppgk2")]
+position = Vector2(866, 425)
+script = ExtResource("6_2r41h")
+
+[node name="CircularSaw" parent="." unique_id=1216204980 instance=ExtResource("7_klq6b")]
+position = Vector2(192, 510)
+
+[connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]
+[connection signal="body_entered" from="JumpPad" to="." method="_on_jump_pad_body_entered"]
+[connection signal="body_entered" from="CircularSaw" to="." method="_on_circular_saw_body_entered"]
