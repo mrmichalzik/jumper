@@ -47,11 +47,13 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
 			double_jump_enabled = true
-			jump_air.rotation_degrees = 0 
+			jump_air.rotation_degrees = 0
+			$JumpSound.play()
 		# Double Jump
 		elif double_jump_enabled:
 			general_animation_enabled = false
 			velocity.y = JUMP_VELOCITY
+			$JumpSound.play()
 			
 			if velocity.x > 0:
 				jump_air.rotation_degrees = 30
