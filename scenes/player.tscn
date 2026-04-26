@@ -456,7 +456,7 @@ animations = [{
 radius = 8.0
 height = 24.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1049054567]
+[node name="Player" type="CharacterBody2D" unique_id=1049054567 groups=["Player"]]
 script = ExtResource("1_sweqy")
 
 [node name="jump_air" type="AnimatedSprite2D" parent="." unique_id=562734164]
@@ -481,7 +481,9 @@ offset = Vector2(2.4074364, 47.616165)
 [node name="Skin" type="AnimatedSprite2D" parent="." unique_id=1118178837]
 position = Vector2(2, 1)
 sprite_frames = SubResource("SpriteFrames_urp6f")
-animation = &"idle"
+animation = &"disappear"
+frame = 6
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=425368180]
 position = Vector2(3, 5)

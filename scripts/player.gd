@@ -16,11 +16,15 @@ var general_animation_enabled = false
 
 func reset(startposition) -> void:
 	general_animation_enabled = false
-	print("Player wird reseted")
 	velocity = Vector2(0,0)
-	print(startposition)
 	position = startposition
 	skin.play("appear")
+	await skin.animation_finished
+	general_animation_enabled = true
+	
+func delete() -> void:
+	general_animation_enabled = false
+	skin.play("disappear")
 	await skin.animation_finished
 	general_animation_enabled = true
 

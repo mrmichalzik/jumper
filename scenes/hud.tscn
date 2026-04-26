@@ -2,16 +2,32 @@
 
 [ext_resource type="FontFile" uid="uid://dcyhbns0b8mpb" path="res://fonts/Kenney Pixel Square.ttf" id="1_ahhtf"]
 [ext_resource type="Script" uid="uid://d3wkhgxk34n0t" path="res://scripts/hud.gd" id="1_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://dk5d8x0knvo2n" path="res://textures/other/Bananas.png" id="3_5ysmq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_toqtt"]
 font = ExtResource("1_ahhtf")
-font_size = 48
+font_size = 30
 font_color = Color(0.6014114, 0.84991556, 0.9700412, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fi6k"]
+atlas = ExtResource("3_5ysmq")
+region = Rect2(0, 0, 34, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uo2fv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fi6k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="HUD" type="CanvasLayer" unique_id=461849100]
 script = ExtResource("1_oo0fn")
 
-[node name="TimerHUD" type="Control" parent="." unique_id=1182819065]
+[node name="HUD" type="Control" parent="." unique_id=1182819065]
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
@@ -20,7 +36,7 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
-[node name="TimeLabel" type="Label" parent="TimerHUD" unique_id=1896497295]
+[node name="TimeLabel" type="Label" parent="HUD" unique_id=1896497295]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -28,5 +44,23 @@ anchor_right = 1.0
 offset_left = -92.0
 offset_bottom = 67.0
 grow_horizontal = 0
-text = "TIME: 00"
 label_settings = SubResource("LabelSettings_toqtt")
+
+[node name="FruitLabel" type="Label" parent="HUD" unique_id=142992297]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_top = 48.0
+offset_bottom = 120.0
+grow_horizontal = 0
+text = "300"
+label_settings = SubResource("LabelSettings_toqtt")
+horizontal_alignment = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HUD/FruitLabel" unique_id=932812679]
+position = Vector2(141, 27)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_uo2fv")
+autoplay = "default"

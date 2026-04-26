@@ -15,6 +15,14 @@ run/main_scene="uid://ubpnylaah6fx"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*uid://co0l1xkx43o16"
+
+[global_group]
+
+Player=""
+
 [input]
 
 sprint={
