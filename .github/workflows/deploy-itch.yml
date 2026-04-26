@@ -32,4 +32,3 @@ jobs:
           butler push "${{ steps.export.outputs.build_directory }}" kr0n3rd/jumper:web --userversion "${GITHUB_SHA::7}"
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-          
