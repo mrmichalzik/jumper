@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 var direction = 0
-const SPEED = 600.0
-const SPEED_SPRINT = 1200.0
+const SPEED = 200 #75.0 #<- Mario default
+const SPEED_SPRINT = 300 #135.0 #<- Mario default
 var speed = SPEED
-const JUMP_VELOCITY = -800.0
+const JUMP_VELOCITY = -300 #<- Mario default
 
 @onready var skin: AnimatedSprite2D = $Skin
 @onready var jump_air: AnimatedSprite2D = $jump_air
@@ -29,10 +29,9 @@ func delete() -> void:
 	general_animation_enabled = true
 
 func _physics_process(delta: float) -> void:
-	
 	# Sprinten
 	if Input.is_action_just_pressed("sprint"):
-		speed = SPEED * 2
+		speed = SPEED_SPRINT
 		if direction == 1:
 			sprint_air.rotation_degrees = 90
 			sprint_air.play("air")

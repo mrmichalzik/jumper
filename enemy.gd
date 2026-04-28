@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 70.0
+const SPEED = 70
 var movingRight = 1
 var canSwitch = true
+@onready var skin: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
 	
@@ -16,14 +17,27 @@ func _physics_process(delta: float) -> void:
 	
 	if movingRight < 0:
 		velocity.x = SPEED * -1.0
-		#$RayCast2D.target_position = Vector2(-270,250) #Warum diese Werte?
+		skin.flip_h = false
+		
+		$RayCast2D.target_position = Vector2(-6,20) #Warum diese Werte?
 	else:
 		velocity.x = SPEED * 1
-		#$RayCast2D.target_position = Vector2(270,250) #Warum diese Werte?
+		skin.flip_h = true
+		$RayCast2D.target_position = Vector2(6,20) #Warum diese Werte?
 	
 	move_and_slide()
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+#func _on_kill_zone_body_entered(body: Node2D) -> void:
+	#if body.is_in_group("Player"):
+		#body.move_local_y(-20)
+		##set_physics_process(false)
+		##$KillZone/CollisionShape2D.disabled = true
+		#skin.play("hit")
+		#await skin.animation_finished
+		#queue_free() #Entfernt die Frücht komplett
+
+
+func _on_hurt_player_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		await body.delete()
 		body.reset(GameManager.LevelStartZone)

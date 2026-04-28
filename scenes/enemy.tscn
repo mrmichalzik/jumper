@@ -268,8 +268,12 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4ra3w"]
-radius = 9.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
+radius = 4.0
+height = 22.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
+size = Vector2(16, 3)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=858116900]
 script = ExtResource("1_5uy6h")
@@ -277,16 +281,27 @@ script = ExtResource("1_5uy6h")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=248327858]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_kih21")
-animation = &"idle"
+animation = &"hit"
 autoplay = "idle"
+frame = 4
+frame_progress = 1.0
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=352280658]
-target_position = Vector2(0, 26)
+target_position = Vector2(-6, 20)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=392009187]
+[node name="HurtPlayerZone" type="Area2D" parent="." unique_id=392009187]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1111874074]
-position = Vector2(0, 6)
-shape = SubResource("CircleShape2D_4ra3w")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtPlayerZone" unique_id=1111874074]
+position = Vector2(1, 5)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_5uy6h")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="KillZone" type="Area2D" parent="." unique_id=1061047714]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=671845868]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_c4w8v")
+
+[connection signal="body_entered" from="HurtPlayerZone" to="." method="_on_hurt_player_zone_body_entered"]
+[connection signal="body_entered" from="HurtPlayerZone" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
