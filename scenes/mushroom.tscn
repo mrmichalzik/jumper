@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dinevh2hlaqnl"]
 
 [ext_resource type="Texture2D" uid="uid://b1ks17hfcb7i8" path="res://textures/enemies/Mushroom/Hit.png" id="1_4ra3w"]
-[ext_resource type="Script" uid="uid://b24nrqsqyi63" path="res://enemy.gd" id="1_5uy6h"]
+[ext_resource type="Script" uid="uid://by7hoste8xx2l" path="res://scripts/mushroom.gd" id="1_5uy6h"]
 [ext_resource type="Texture2D" uid="uid://dnjjqnjll0ttr" path="res://textures/enemies/Mushroom/Idle (32x32).png" id="2_5uy6h"]
 [ext_resource type="Texture2D" uid="uid://cojl0j0oi4lyu" path="res://textures/enemies/Mushroom/Run (32x32).png" id="3_c4w8v"]
 
@@ -269,13 +269,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
-radius = 4.0
-height = 22.0
+radius = 9.997212
+height = 23.993309
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
-size = Vector2(16, 3)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4w8v"]
+radius = 10.999925
+height = 25.99982
 
-[node name="Enemy" type="CharacterBody2D" unique_id=858116900]
+[node name="Mushroom" type="CharacterBody2D" unique_id=507480572]
 script = ExtResource("1_5uy6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=248327858]
@@ -289,19 +290,18 @@ frame_progress = 1.0
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=352280658]
 target_position = Vector2(-6, 20)
 
-[node name="HurtPlayerZone" type="Area2D" parent="." unique_id=392009187]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtPlayerZone" unique_id=1111874074]
-position = Vector2(1, 5)
-rotation = -1.5707964
+[node name="Collision_with_World" type="CollisionShape2D" parent="." unique_id=1111874074]
+position = Vector2(1, 6.0000005)
+rotation = 1.5471789
+scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CapsuleShape2D_5uy6h")
 
-[node name="KillZone" type="Area2D" parent="." unique_id=1061047714]
+[node name="Area2D" type="Area2D" parent="." unique_id=2111263037]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=671845868]
-position = Vector2(1, -2)
-shape = SubResource("RectangleShape2D_c4w8v")
+[node name="Collision_with_Player" type="CollisionShape2D" parent="Area2D" unique_id=590078930]
+position = Vector2(1, 6)
+rotation = -1.5745006
+shape = SubResource("CapsuleShape2D_c4w8v")
+debug_color = Color(0.9816914, 0, 0.37294725, 0.41960785)
 
-[connection signal="body_entered" from="HurtPlayerZone" to="." method="_on_hurt_player_zone_body_entered"]
-[connection signal="body_entered" from="HurtPlayerZone" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

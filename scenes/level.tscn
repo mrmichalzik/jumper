@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bhvxgarq33w07" path="res://scenes/startzone.tscn" id="9_8c41q"]
 [ext_resource type="PackedScene" uid="uid://b44diuf7wy87y" path="res://scenes/finish_zone.tscn" id="10_olg7q"]
 [ext_resource type="PackedScene" uid="uid://dv42xtno3xvpq" path="res://scenes/fruit.tscn" id="14_fpun6"]
-[ext_resource type="PackedScene" uid="uid://dinevh2hlaqnl" path="res://scenes/enemy.tscn" id="14_wc255"]
+[ext_resource type="PackedScene" uid="uid://dinevh2hlaqnl" path="res://scenes/mushroom.tscn" id="14_wc255"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_8iemx"]
 tile_data = PackedInt32Array(0, 393216, 0, 65536, 393216, 1, 131072, 393216, 2, 1, 458752, 0, 65537, 458752, 1, 131073, 458752, 2, 2, 458752, 0, 65538, 458752, 1, 131074, 458752, 2, 3, 458752, 0, 65539, 458752, 1, 131075, 458752, 2, 4, 458752, 0, 65540, 458752, 1, 131076, 458752, 2, 5, 458752, 0, 65541, 458752, 1, 131077, 458752, 2, 6, 458752, 0, 65542, 458752, 1, 131078, 458752, 2, 7, 458752, 0, 65543, 458752, 1, 131079, 458752, 2)
@@ -425,10 +425,88 @@ position = Vector2(503, 477)
 position = Vector2(528, 477)
 
 [node name="Fruit4" parent="Fruits" unique_id=488413197 instance=ExtResource("14_fpun6")]
-position = Vector2(553, 477)
+position = Vector2(552, 477)
 
-[node name="Enemy" parent="." unique_id=858116900 instance=ExtResource("14_wc255")]
-position = Vector2(571, 517)
+[node name="Fruit5" parent="Fruits" unique_id=2036985726 instance=ExtResource("14_fpun6")]
+position = Vector2(1063, 493)
+
+[node name="Fruit6" parent="Fruits" unique_id=525059039 instance=ExtResource("14_fpun6")]
+position = Vector2(1088, 493)
+
+[node name="Fruit7" parent="Fruits" unique_id=1829224384 instance=ExtResource("14_fpun6")]
+position = Vector2(1113, 493)
+
+[node name="Fruit8" parent="Fruits" unique_id=1924007709 instance=ExtResource("14_fpun6")]
+position = Vector2(1138, 493)
+
+[node name="Fruit9" parent="Fruits" unique_id=689509981 instance=ExtResource("14_fpun6")]
+position = Vector2(2781, 493)
+
+[node name="Fruit10" parent="Fruits" unique_id=1446319824 instance=ExtResource("14_fpun6")]
+position = Vector2(2806, 493)
+
+[node name="Fruit11" parent="Fruits" unique_id=1903697322 instance=ExtResource("14_fpun6")]
+position = Vector2(3751, 454)
+
+[node name="Fruit12" parent="Fruits" unique_id=1517077388 instance=ExtResource("14_fpun6")]
+position = Vector2(3776, 454)
+
+[node name="Mushrooms" type="Node" parent="." unique_id=2065797005]
+
+[node name="Mushroom" parent="Mushrooms" unique_id=507480572 instance=ExtResource("14_wc255")]
+position = Vector2(527, 515)
+
+[node name="Mushroom2" parent="Mushrooms" unique_id=1863910180 instance=ExtResource("14_wc255")]
+position = Vector2(488, 548)
+floor_stop_on_slope = false
+
+[node name="Mushroom3" parent="Mushrooms" unique_id=1049182060 instance=ExtResource("14_wc255")]
+position = Vector2(794, 580)
+floor_stop_on_slope = false
+
+[node name="Mushroom4" parent="Mushrooms" unique_id=1110446484 instance=ExtResource("14_wc255")]
+position = Vector2(823, 580)
+floor_stop_on_slope = false
+
+[node name="Mushroom5" parent="Mushrooms" unique_id=275349000 instance=ExtResource("14_wc255")]
+position = Vector2(853, 580)
+floor_stop_on_slope = false
+
+[node name="Mushroom6" parent="Mushrooms" unique_id=1539888201 instance=ExtResource("14_wc255")]
+position = Vector2(1371, 515)
+floor_stop_on_slope = false
+
+[node name="Mushroom7" parent="Mushrooms" unique_id=1627264555 instance=ExtResource("14_wc255")]
+position = Vector2(1562, 484)
+floor_stop_on_slope = false
+
+[node name="Mushroom8" parent="Mushrooms" unique_id=189401357 instance=ExtResource("14_wc255")]
+position = Vector2(1927, 580)
+floor_stop_on_slope = false
+
+[node name="Mushroom9" parent="Mushrooms" unique_id=1195058983 instance=ExtResource("14_wc255")]
+position = Vector2(2564, 580)
+floor_stop_on_slope = false
+
+[node name="Mushroom10" parent="Mushrooms" unique_id=1440333903 instance=ExtResource("14_wc255")]
+position = Vector2(2663, 531)
+floor_stop_on_slope = false
+
+[node name="Mushroom11" parent="Mushrooms" unique_id=1426631014 instance=ExtResource("14_wc255")]
+position = Vector2(2722, 531)
+floor_stop_on_slope = false
+
+[node name="Mushroom12" parent="Mushrooms" unique_id=198216651 instance=ExtResource("14_wc255")]
+position = Vector2(3550, 579)
+floor_stop_on_slope = false
+
+[node name="Mushroom13" parent="Mushrooms" unique_id=1081364490 instance=ExtResource("14_wc255")]
+position = Vector2(4256, 484)
+floor_stop_on_slope = false
+
+[node name="Mushroom14" parent="Mushrooms" unique_id=409219263 instance=ExtResource("14_wc255")]
+position = Vector2(4153, 484)
+floor_stop_on_slope = false
 
 [connection signal="body_entered" from="CircularSaw2" to="." method="_on_circular_saw_body_entered"]
 [connection signal="body_entered" from="CircularSaw" to="." method="_on_circular_saw_body_entered"]

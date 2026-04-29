@@ -101,3 +101,6 @@ func jumppadpush():
 	velocity.y = JUMP_VELOCITY * 1.2
 	double_jump_enabled = true
 	jump_air.rotation_degrees = 0
+	
+func bounce(multiplier):
+	velocity.y = JUMP_VELOCITY * multiplier
