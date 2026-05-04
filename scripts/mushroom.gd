@@ -5,10 +5,12 @@ const SPEED = 70
 var movingRight = 1
 var canSwitch = true
 @onready var skin: AnimatedSprite2D = $AnimatedSprite2D
+@onready var ray_cast_floor: RayCast2D = $RayCastFloor
+@onready var ray_cast_wall: RayCast2D = $RayCastWall
 
 func _physics_process(delta: float) -> void:
 	
-	if !$RayCast2D.is_colliding() and canSwitch:
+	if (!ray_cast_floor.is_colliding() or ray_cast_wall.is_colliding()) and canSwitch:
 		movingRight *= -1
 		canSwitch = false
 	else:
@@ -18,12 +20,13 @@ func _physics_process(delta: float) -> void:
 	if movingRight < 0:
 		velocity.x = SPEED * -1.0
 		skin.flip_h = false
-		
-		$RayCast2D.target_position = Vector2(-6,20) #Warum diese Werte?
+		ray_cast_wall.target_position = Vector2(-12,7)
+		ray_cast_floor.target_position = Vector2(-6,20)
 	else:
 		velocity.x = SPEED * 1
 		skin.flip_h = true
-		$RayCast2D.target_position = Vector2(6,20) #Warum diese Werte?
+		ray_cast_wall.target_position = Vector2(14,7)
+		ray_cast_floor.target_position = Vector2(6,20)
 	
 	move_and_slide()
 
@@ -43,3 +46,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			body.bounce(0.8)
 			await skin.animation_finished
 			queue_free() #Entfernt Gegner aus dem Spiel
+
+
+func jumppadpush():
+	velocity.y = 50

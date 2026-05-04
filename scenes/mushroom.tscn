@@ -263,32 +263,34 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bhb1k")
 }],
-"loop": false,
+"loop": true,
 "name": &"run",
 "speed": 20.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
-radius = 9.997212
+radius = 8.99749
 height = 23.993309
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4w8v"]
-radius = 10.999925
+radius = 9.999931
 height = 25.99982
 
-[node name="Mushroom" type="CharacterBody2D" unique_id=507480572]
+[node name="Mushroom" type="CharacterBody2D" unique_id=507480572 groups=["Enemy"]]
+floor_max_angle = 0.2617994
 script = ExtResource("1_5uy6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=248327858]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_kih21")
-animation = &"hit"
-autoplay = "idle"
-frame = 4
-frame_progress = 1.0
+animation = &"run"
+autoplay = "run"
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=352280658]
+[node name="RayCastFloor" type="RayCast2D" parent="." unique_id=352280658]
 target_position = Vector2(-6, 20)
+
+[node name="RayCastWall" type="RayCast2D" parent="." unique_id=2138846188]
+target_position = Vector2(14, 7)
 
 [node name="Collision_with_World" type="CollisionShape2D" parent="." unique_id=1111874074]
 position = Vector2(1, 6.0000005)
@@ -299,7 +301,7 @@ shape = SubResource("CapsuleShape2D_5uy6h")
 [node name="Area2D" type="Area2D" parent="." unique_id=2111263037]
 
 [node name="Collision_with_Player" type="CollisionShape2D" parent="Area2D" unique_id=590078930]
-position = Vector2(1, 6)
+position = Vector2(1, 5)
 rotation = -1.5745006
 shape = SubResource("CapsuleShape2D_c4w8v")
 debug_color = Color(0.9816914, 0, 0.37294725, 0.41960785)

@@ -27,8 +27,12 @@ func _on_death_zone_body_entered(body: Node2D) -> void:
 
 func _on_jump_pad_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		player.jumppadpush();
-		$JumpPad.jump();
+		player.jumppadpush()
+		$JumpPad.jump()
+	## TO-DO: Pilz soll auch geschleudert werden
+	if body.is_in_group("Enemy"):
+		print("Pilz berührt Jumppad")
+		body.velocity.y = 2
 
 func _on_circular_saw_body_entered(body: Node2D) -> void:
 	player.reset(GameManager.LevelStartZone)

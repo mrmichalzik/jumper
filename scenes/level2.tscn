@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://brrmusltfabtd" path="res://scripts/jump_pad.gd" id="9_bo4dx"]
 [ext_resource type="PackedScene" uid="uid://bhvxgarq33w07" path="res://scenes/startzone.tscn" id="9_cqal4"]
 [ext_resource type="PackedScene" uid="uid://b44diuf7wy87y" path="res://scenes/finish_zone.tscn" id="10_o3sye"]
+[ext_resource type="PackedScene" uid="uid://dinevh2hlaqnl" path="res://scenes/mushroom.tscn" id="11_76toy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8c41q"]
 texture = ExtResource("3_8g4ke")
@@ -445,6 +446,9 @@ script = ExtResource("9_bo4dx")
 
 [node name="CircularSaw" parent="." unique_id=1216204980 instance=ExtResource("7_bo4dx")]
 position = Vector2(962, 424)
+
+[node name="Mushroom" parent="." unique_id=507480572 instance=ExtResource("11_76toy")]
+position = Vector2(373, 581)
 
 [connection signal="body_entered" from="CircularSaw2" to="." method="_on_circular_saw_body_entered"]
 [connection signal="body_entered" from="DeathZone" to="." method="_on_death_zone_body_entered"]

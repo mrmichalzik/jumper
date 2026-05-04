@@ -369,7 +369,6 @@ script = ExtResource("1_mx8sn")
 next_level = ExtResource("2_8iemx")
 
 [node name="ParallaxBackground" parent="." unique_id=828686020 instance=ExtResource("2_b121j")]
-position = Vector2(-393, 54)
 
 [node name="Nintendo-Template" type="Sprite2D" parent="." unique_id=1095133257]
 visible = false
@@ -454,7 +453,10 @@ position = Vector2(3776, 454)
 [node name="Mushrooms" type="Node" parent="." unique_id=2065797005]
 
 [node name="Mushroom" parent="Mushrooms" unique_id=507480572 instance=ExtResource("14_wc255")]
-position = Vector2(527, 515)
+position = Vector2(508, 517)
+
+[node name="Mushroom16" parent="Mushrooms" unique_id=1306748050 instance=ExtResource("14_wc255")]
+position = Vector2(557, 517)
 
 [node name="Mushroom2" parent="Mushrooms" unique_id=1863910180 instance=ExtResource("14_wc255")]
 position = Vector2(488, 548)
@@ -507,6 +509,9 @@ floor_stop_on_slope = false
 [node name="Mushroom14" parent="Mushrooms" unique_id=409219263 instance=ExtResource("14_wc255")]
 position = Vector2(4153, 484)
 floor_stop_on_slope = false
+
+[node name="Mushroom15" parent="Mushrooms" unique_id=1292873073 instance=ExtResource("14_wc255")]
+position = Vector2(1044, 1028)
 
 [connection signal="body_entered" from="CircularSaw2" to="." method="_on_circular_saw_body_entered"]
 [connection signal="body_entered" from="CircularSaw" to="." method="_on_circular_saw_body_entered"]
