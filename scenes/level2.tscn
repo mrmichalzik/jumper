@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://daqdm7hlc5q0f" path="res://textures/bg/Yellow.png" id="4_56gwk"]
 [ext_resource type="PackedScene" uid="uid://cj1cui07k2oww" path="res://scenes/death_zone.tscn" id="5_ve5ok"]
 [ext_resource type="PackedScene" uid="uid://ctr66pyuhyjl" path="res://scenes/jump_pad.tscn" id="6_xa7n4"]
-[ext_resource type="PackedScene" uid="uid://o8qpoldqs0nt" path="res://scenes/hud.tscn" id="7_6ep0u"]
 [ext_resource type="PackedScene" uid="uid://dpv50s1e35elj" path="res://scenes/circular_saw.tscn" id="7_bo4dx"]
 [ext_resource type="Script" uid="uid://brrmusltfabtd" path="res://scripts/jump_pad.gd" id="9_bo4dx"]
 [ext_resource type="PackedScene" uid="uid://bhvxgarq33w07" path="res://scenes/startzone.tscn" id="9_cqal4"]
@@ -429,8 +428,6 @@ position = Vector2(248, 565)
 
 [node name="FinishZone" parent="." unique_id=1764247761 instance=ExtResource("10_o3sye")]
 position = Vector2(1319, 452)
-
-[node name="HUD" parent="." unique_id=461849100 instance=ExtResource("7_6ep0u")]
 
 [node name="JumpPad" parent="." unique_id=526288258 instance=ExtResource("6_xa7n4")]
 position = Vector2(428, 578)
